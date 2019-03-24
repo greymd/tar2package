@@ -33,7 +33,7 @@ inject_vars () {
   cd "/tmp/extract" || exit 1
   tar zxvf template.tar.gz
   rm -f template.tar.gz
-  load_vars "/tmp/extract/template.yml"
+  load_vars "/tmp/extract/.tar2package.yml"
   inject_vars "/tmp/template.spec"
   mkdir -p /tmp/extract/"${_CMDNAME}-${_VERSION}"
   mv "/tmp/extract/"{bin,man} /tmp/extract/"${_CMDNAME}-${_VERSION}"

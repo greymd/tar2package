@@ -34,7 +34,7 @@ inject_vars () {
     cat | tar zxv
   )
   cp -rf "/tmp/extract"/{bin,man} /tmp/deb-template/
-  load_vars "/tmp/extract/template.yml"
+  load_vars "/tmp/extract/.tar2package.yml"
   inject_vars /tmp/changelog.sh
   inject_vars /tmp/deb-template/debian/control
   inject_vars /tmp/deb-template/debian/copyright

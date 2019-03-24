@@ -18,7 +18,7 @@ $ docker pull greymd/tar2deb
 
 #### (1). Prepare yaml file
 
-**template.yml**
+**.tar2package.yml**
 
 ```
 name : <application name>
@@ -39,13 +39,13 @@ Following files should be placed on the current directory.
 ```
 bin/* -- executable file(s)
 man/*.1 -- man file(s)
-template.yml
+.tar2package.yml
 ```
 
 Compression
 
 ```
-$ tar zcvf myapp.tar.gz -C "$PWD" bin man template.yml
+$ tar zcvf myapp.tar.gz -C "$PWD" bin man .tar2package.yml
 ```
 
 #### (3). Convert it to package files (deb/rpm)
