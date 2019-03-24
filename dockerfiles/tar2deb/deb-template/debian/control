@@ -1,0 +1,18 @@
+Source: @@@CMDNAME@@@
+Version: @@@VERSION@@@
+Section: utils
+Priority: optional
+Maintainer: @@@AUTHOR@@@
+Build-Depends: debhelper (>=9)
+Standards-Version: 3.9.7
+Homepage: @@@URL@@@
+Vcs-Git: @@@URL@@@
+Vcs-Browser: @@@URL@@@
+
+Package: @@@CMDNAME@@@
+Version: @@@VERSION@@@
+Section: interpreters
+Architecture: amd64
+Maintainer: @@@AUTHOR@@@
+Description: <@@@SUMMARY@@@>
+ <@@@DESCRIPTION@@@>
