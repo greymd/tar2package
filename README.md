@@ -32,6 +32,9 @@ author : <author name>
 email : <email>
 ```
 
+ATTENTION: `name` must follow this rule.
+https://blog.packagecloud.io/eng/2015/07/14/using-dh-make-to-prepare-debian-packages/#understanding-the-package-name-and-version
+
 #### (2). Create tar file
 
 Following files should be placed on the current directory.
