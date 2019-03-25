@@ -13,7 +13,7 @@ Provides:   @@@CMDNAME@@@
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 %description
-@@@DESCRIOPTION@@@
+@@@DESCRIPTION@@@
 
 %prep
 %setup
