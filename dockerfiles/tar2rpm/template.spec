@@ -27,8 +27,8 @@ BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 #@lib@%{__cp} -a lib/* %{buildroot}%{_libdir}/
 
 %files
-#@bin@%attr(0644, root, root) %{_mandir}/man1/*
-#@man@%attr(0755, root, root) %{_bindir}/*
+#@man@%attr(0644, root, root) %{_mandir}/man1/*
+#@bin@%attr(0755, root, root) %{_bindir}/*
 #@lib@%attr(0644, root, root) %{_libdir}/*
 
 %clean
