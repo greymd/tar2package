@@ -5,7 +5,7 @@ _THIS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%N}}")"; pwd)"
 cp "${_THIS_DIR}/deb-template/debian/changelog" /tmp/changelog
 
 {
-  echo "@@@CMDNAME@@@ (@@@VERSION@@@-1) trusty; urgency=medium"
+  echo "@@@NAME@@@ (@@@VERSION@@@-1) trusty; urgency=medium"
   echo
   echo "@@@CHANGELOG@@@" | sed 's/^/  /'
   echo
