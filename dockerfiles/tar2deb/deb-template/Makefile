@@ -12,9 +12,11 @@ all:
 	@echo "Run 'make install' to install"
 
 install:
-	${INSTALL} -d ${BINDIR}
-	${INSTALL} -m 755 bin/* ${BINDIR}
-	${INSTALL} -d ${MANDIR}
-	${INSTALL} -m 644 man/*.1 ${MANDIR}
+#@bin@	${INSTALL} -d ${BINDIR}
+#@bin@	${INSTALL} -m 755 bin/* ${BINDIR}
+#@lib@	${INSTALL} -d ${LIBDIR}
+#@lib@	${INSTALL} -m 644 lib/* ${LIBDIR}
+#@man@	${INSTALL} -d ${MANDIR}
+#@man@	${INSTALL} -m 644 man/*.1 ${MANDIR}
 
 deinstall: uninstall

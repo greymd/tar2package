@@ -35,9 +35,11 @@ email : <email>
 #### (2). Create tar file
 
 Following files should be placed on the current directory.
+`lib` and `man` directories are optional.
 
 ```
 bin/* -- executable file(s)
+lib/* -- library file(s)
 man/*.1 -- man file(s)
 .tar2package.yml
 ```
@@ -45,7 +47,7 @@ man/*.1 -- man file(s)
 Compression
 
 ```
-$ tar zcvf myapp.tar.gz -C "$PWD" bin man .tar2package.yml
+$ tar zcvf myapp.tar.gz -C "$PWD" bin lib man .tar2package.yml
 ```
 
 #### (3). Convert it to package files (deb/rpm)

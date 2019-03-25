@@ -19,13 +19,17 @@ BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 %setup
 
 %install
-install -d -m 0755 %{buildroot}%{_bindir} %{buildroot}%{_mandir}/man1
-%{__cp} -a man/*.1 %{buildroot}%{_mandir}/man1/
-%{__cp} -a bin/* %{buildroot}%{_bindir}/
+#@bin@install -d -m 0755 %{buildroot}%{_bindir}
+#@man@install -d -m 0755 %{buildroot}%{_mandir}/man1
+#@lib@install -d -m 0755 %{buildroot}%{_libdir}
+#@bin@%{__cp} -a bin/* %{buildroot}%{_bindir}/
+#@man@%{__cp} -a man/*.1 %{buildroot}%{_mandir}/man1/
+#@lib@%{__cp} -a lib/* %{buildroot}%{_libdir}/
 
 %files
-%attr(0644, root, root) %{_mandir}/man1/*
-%attr(0755, root, root) %{_bindir}/*
+#@bin@%attr(0644, root, root) %{_mandir}/man1/*
+#@man@%attr(0755, root, root) %{_bindir}/*
+#@lib@%attr(0644, root, root) %{_libdir}/*
 
 %clean
 %{__rm} -rf %{buildroot}

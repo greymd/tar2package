@@ -36,7 +36,14 @@ inject_vars () {
   load_vars "/tmp/extract/.tar2package.yml"
   inject_vars "/tmp/template.spec"
   mkdir -p /tmp/extract/"${_CMDNAME}-${_VERSION}"
-  mv "/tmp/extract/"{bin,man} /tmp/extract/"${_CMDNAME}-${_VERSION}"
+
+  for dir in {lib,bin,man}; do
+    if [[ -d /tmp/extract/"$dir" ]]; then
+      mv /tmp/extract/"$dir" /tmp/extract/"${_CMDNAME}-${_VERSION}"
+      sed -i "s/^#@$dir@//" "/tmp/template.spec"
+    fi
+  done
+
   tar -zcvf "${_CMDNAME}-${_VERSION}.tar.gz" -C "/tmp/extract" "${_CMDNAME}-${_VERSION}"
   mkdir -p "${HOME}/rpmbuild/SOURCES/"
   mv "${_CMDNAME}-${_VERSION}.tar.gz" "${HOME}/rpmbuild/SOURCES/template.tar.gz"

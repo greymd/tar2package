@@ -33,7 +33,15 @@ inject_vars () {
     cd /tmp/extract
     cat | tar zxv
   )
-  cp -rf "/tmp/extract"/{bin,man} /tmp/deb-template/
+
+  for dir in {lib,bin,man}; do
+    if [[ -d /tmp/extract/"$dir" ]]; then
+      cp -rf /tmp/extract/"$dir" /tmp/deb-template/
+      sed -i "s/^#@$dir@//" "/tmp/deb-template/Makefile"
+    fi
+  done
+
+  cp -rf "/tmp/extract"/{bin,man,lib} /tmp/deb-template/ || true
   load_vars "/tmp/extract/.tar2package.yml"
   inject_vars /tmp/changelog.sh
   inject_vars /tmp/deb-template/debian/control
