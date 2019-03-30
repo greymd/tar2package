@@ -29,7 +29,7 @@ BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 %files
 #@man@%attr(0644, root, root) %{_mandir}/man1/*
 #@bin@%attr(0755, root, root) %{_bindir}/*
-#@lib@%attr(0644, root, root) %{_libdir}/*
+#@lib@%attr(-, root, root) %{_libdir}/*
 
 %clean
 %{__rm} -rf %{buildroot}
