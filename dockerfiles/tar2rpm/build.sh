@@ -12,6 +12,7 @@ load_vars () {
   _URL="$(yq r "$_file" url)"
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
+  _LIBDIR="$(yq r "$_file" libdir)"
 }
 
 inject_vars () {
@@ -47,7 +48,11 @@ inject_vars () {
   tar -zcvf "${_CMDNAME}-${_VERSION}.tar.gz" -C "/tmp/extract" "${_CMDNAME}-${_VERSION}"
   mkdir -p "${HOME}/rpmbuild/SOURCES/"
   mv "${_CMDNAME}-${_VERSION}.tar.gz" "${HOME}/rpmbuild/SOURCES/template.tar.gz"
-  rpmbuild --undefine=_disable_source_fetch -ba /tmp/template.spec
+  if [[ "${_LIBDIR}" == "null" ]];then
+    rpmbuild --undefine=_disable_source_fetch -ba /tmp/template.spec
+  else
+    rpmbuild --undefine=_disable_source_fetch -ba --define="_libdir ${_LIBDIR}" /tmp/template.spec
+  fi
 } >&2
 # It is expectec to be single file.
 cat "${HOME}/rpmbuild/RPMS/$(uname -m)"/*.rpm

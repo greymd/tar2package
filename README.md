@@ -30,6 +30,7 @@ changelog : <changes from previous version>
 url : <url of the application>
 author : <author name>
 email : <email>
+libdir : null
 ```
 
 ATTENTION: `name` must follow this rule.
