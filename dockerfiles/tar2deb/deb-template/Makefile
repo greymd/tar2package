@@ -15,7 +15,7 @@ install:
 #@bin@	${INSTALL} -d ${BINDIR}
 #@bin@	${INSTALL} -m 755 bin/* ${BINDIR}
 #@lib@	${INSTALL} -d ${LIBDIR}
-#@lib@	${INSTALL} -m 644 lib/* ${LIBDIR}
+#@lib@	${CP} lib/* ${LIBDIR}
 #@man@	${INSTALL} -d ${MANDIR}
 #@man@	${INSTALL} -m 644 man/*.1 ${MANDIR}
 
