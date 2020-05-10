@@ -1,6 +1,6 @@
 FROM phusion/baseimage:latest
-MAINTAINER Yamada, Yasuhiro <greengregson@gmail.com>
-ENV DEBFULLNAME="Yamada, Yasuhiro" DEBEMAIL=greengregson@gmail.com DEBIAN_FRONTEND=noninteractive
+MAINTAINER Yamada, Yasuhiro <yamadagrep@gmail.com>
+ENV DEBFULLNAME="Yamada, Yasuhiro" DEBEMAIL=yamadagrep@gmail.com DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt install -y dh-make fakeroot pbuilder software-properties-common jq
 
