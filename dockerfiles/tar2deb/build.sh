@@ -15,15 +15,15 @@ load_vars () {
 
 inject_vars () {
   local _file="$1"
-  sed -i "s/@@@NAME@@@/$_NAME/g" "$_file"
-  sed -i "s/@@@CMDNAME@@@/$_CMDNAME/g" "$_file"
-  sed -i "s/@@@SUMMARY@@@/$_SUMMARY/g" "$_file"
-  sed -i "s/@@@DESCRIPTION@@@/$_DESCRIPTION/g" "$_file"
-  sed -i "s/@@@VERSION@@@/$_VERSION/g" "$_file"
-  sed -i "s/@@@CHANGELOG@@@/$_CHANGELOG/g" "$_file"
+  sed -i "s/@@@NAME@@@/${_NAME//\//\\/}/g" "$_file"
+  sed -i "s/@@@CMDNAME@@@/${_CMDNAME//\//\\/}/g" "$_file"
+  sed -i "s/@@@SUMMARY@@@/${_SUMMARY//\//\\/}/g" "$_file"
+  sed -i "s/@@@DESCRIPTION@@@/${_DESCRIPTION//\//\\/}/g" "$_file"
+  sed -i "s/@@@VERSION@@@/${_VERSION//\//\\/}/g" "$_file"
+  sed -i "s/@@@CHANGELOG@@@/${_CHANGELOG//\//\\/}/g" "$_file"
   sed -i "s/@@@URL@@@/${_URL//\//\\/}/g" "$_file"
-  sed -i "s/@@@AUTHOR@@@/$_AUTHOR/g" "$_file"
-  sed -i "s/@@@EMAIL@@@/$_EMAIL/g" "$_file"
+  sed -i "s/@@@AUTHOR@@@/${_AUTHOR//\//\\/}/g" "$_file"
+  sed -i "s/@@@EMAIL@@@/${_EMAIL//\//\\/}/g" "$_file"
 }
 
 {
