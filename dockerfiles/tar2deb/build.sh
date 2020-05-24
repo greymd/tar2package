@@ -11,7 +11,7 @@ load_vars () {
   _URL="$(yq r "$_file" url)"
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
-  _ARCH="$(yq r "$_file" arch)"
+  _ARCH="$(yq r "$_file" arch_deb)"
 }
 
 inject_vars () {

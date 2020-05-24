@@ -12,7 +12,7 @@ load_vars () {
   _URL="$(yq r "$_file" url)"
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
-  _ARCH="$(yq r "$_file" arch)"
+  _ARCH="$(yq r "$_file" arch_rpm)"
   _LIBDIR="$(yq r "$_file" libdir)"
 }
 
@@ -53,8 +53,6 @@ inject_vars () {
   tar -zcvf "${_CMDNAME}-${_VERSION}.tar.gz" -C "/tmp/extract" "${_CMDNAME}-${_VERSION}"
   mkdir -p "${HOME}/rpmbuild/SOURCES/"
   mv "${_CMDNAME}-${_VERSION}.tar.gz" "${HOME}/rpmbuild/SOURCES/template.tar.gz"
-  ls -al /tmp/template.spec >&2
-  cat /tmp/template.spec >&2
   if [[ "${_LIBDIR}" == "null" ]];then
     rpmbuild --undefine=_disable_source_fetch -ba /tmp/template.spec
   else

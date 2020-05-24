@@ -30,7 +30,6 @@ changelog : <changes from previous version>
 url : <url of the application>
 author : <author name>
 email : <email>
-libdir : null
 ```
 
 ATTENTION: `name` must follow this rule.
@@ -87,6 +86,8 @@ You can additionally specify following parameters.
 
 ```
 libdir : ...
+arch_rpm : ...
+arch_debpm : ...
 ```
 
 #### `libdir`
@@ -94,3 +95,16 @@ libdir : ...
 Path of library directory.
 Commonly the path is `/usr/lib` but `/usr/lib64/` is used instead in some Linux distros with x86_64 environment.
 With this option, library directory is unified to specified path.
+
+#### `arch_rpm`
+Supported platform of `deb` file.
+Default value is `x86_64`.
+Candidate value can be confirmed by `uname -m`.
+`noarch` is helpful if the application works in multiple platforms.
+
+#### `arch_deb`
+Supported platform of `deb` file.
+Default value is `amd64`.
+Candidate value can be confirmed by `dpkg-architecture -L`.
+`any` is helpful if the application works in multiple platforms.
+See https://www.debian.org/doc/debian-policy/ch-customized-programs.html#s-arch-spec
