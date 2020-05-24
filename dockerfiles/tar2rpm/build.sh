@@ -12,11 +12,15 @@ load_vars () {
   _URL="$(yq r "$_file" url)"
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
+  _ARCH="$(yq r "$_file" arch)"
   _LIBDIR="$(yq r "$_file" libdir)"
 }
 
 inject_vars () {
   local _file="$1"
+  if [[ "$_ARCH" == "null" ]]; then
+    _ARCH="noarch"
+  fi
   sed -i "s/@@@NAME@@@/$_NAME/g" "$_file"
   sed -i "s/@@@CMDNAME@@@/$_CMDNAME/g" "$_file"
   sed -i "s/@@@SUMMARY@@@/$_SUMMARY/g" "$_file"
@@ -26,6 +30,7 @@ inject_vars () {
   sed -i "s/@@@URL@@@/${_URL//\//\\/}/g" "$_file"
   sed -i "s/@@@AUTHOR@@@/$_AUTHOR/g" "$_file"
   sed -i "s/@@@EMAIL@@@/$_EMAIL/g" "$_file"
+  sed -i "s/@@@ARCH@@@/$_ARCH/g" "$_file"
 }
 
 {

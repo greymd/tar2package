@@ -3,11 +3,11 @@ Upstream-Name: @@@CMDNAME@@@
 Source: <@@@URL@@@>
 
 Files: *
-Copyright: 2019 @@@AUTHOR@@@ <@@@EMAIL@@@>
+Copyright: 2020 @@@AUTHOR@@@ <@@@EMAIL@@@>
 License: MIT
 
 Files: debian/*
-Copyright: 2019 @@@AUTHOR@@@ <@@@EMAIL@@@>
+Copyright: 2020 @@@AUTHOR@@@ <@@@EMAIL@@@>
 License: MIT
 
 License: MIT
