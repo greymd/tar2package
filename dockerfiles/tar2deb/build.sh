@@ -48,6 +48,9 @@ inject_vars () {
 
   cp -rf "/tmp/extract"/{bin,man,lib} /tmp/deb-template/ || true
   load_vars "/tmp/extract/.tar2package.yml"
+  if [[ "$_ARCH" == "null" ]]; then
+    _ARCH="amd64"
+  fi
   inject_vars /tmp/changelog.sh
   inject_vars /tmp/deb-template/debian/control
   inject_vars /tmp/deb-template/debian/copyright

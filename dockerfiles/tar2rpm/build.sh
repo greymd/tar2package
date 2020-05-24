@@ -18,9 +18,6 @@ load_vars () {
 
 inject_vars () {
   local _file="$1"
-  if [[ "$_ARCH" == "null" ]]; then
-    _ARCH="noarch"
-  fi
   sed -i "s/@@@NAME@@@/$_NAME/g" "$_file"
   sed -i "s/@@@CMDNAME@@@/$_CMDNAME/g" "$_file"
   sed -i "s/@@@SUMMARY@@@/$_SUMMARY/g" "$_file"
@@ -40,6 +37,9 @@ inject_vars () {
   tar zxvf template.tar.gz
   rm -f template.tar.gz
   load_vars "/tmp/extract/.tar2package.yml"
+  if [[ "$_ARCH" == "null" ]]; then
+    _ARCH="x86_64"
+  fi
   inject_vars "/tmp/template.spec"
   mkdir -p /tmp/extract/"${_CMDNAME}-${_VERSION}"
 
@@ -53,6 +53,8 @@ inject_vars () {
   tar -zcvf "${_CMDNAME}-${_VERSION}.tar.gz" -C "/tmp/extract" "${_CMDNAME}-${_VERSION}"
   mkdir -p "${HOME}/rpmbuild/SOURCES/"
   mv "${_CMDNAME}-${_VERSION}.tar.gz" "${HOME}/rpmbuild/SOURCES/template.tar.gz"
+  ls -al /tmp/template.spec >&2
+  cat /tmp/template.spec >&2
   if [[ "${_LIBDIR}" == "null" ]];then
     rpmbuild --undefine=_disable_source_fetch -ba /tmp/template.spec
   else
