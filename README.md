@@ -80,3 +80,17 @@ $ dpkg -i ./myapp.deb
 ```
 
 That's it.
+
+## Advanced usage
+
+You can additionally specify following parameters.
+
+```
+libdir : ...
+```
+
+#### `libdir`
+
+Path of library directory.
+Commonly the path is `/usr/lib` but `/usr/lib64/` is used instead in some Linux distros with x86_64 environment.
+With this option, library directory is unified to specified path.
