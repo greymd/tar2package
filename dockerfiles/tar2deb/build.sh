@@ -11,6 +11,10 @@ load_vars () {
   _URL="$(yq r "$_file" url)"
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
+  _DEBARCH="$(yq r "$_file" debarch)"
+  if [[ "$_DEBARCH" == "null" ]]; then
+    _DEBARCH="amd64"
+  fi
 }
 
 inject_vars () {
@@ -24,6 +28,7 @@ inject_vars () {
   sed -i "s/@@@URL@@@/${_URL//\//\\/}/g" "$_file"
   sed -i "s/@@@AUTHOR@@@/${_AUTHOR//\//\\/}/g" "$_file"
   sed -i "s/@@@EMAIL@@@/${_EMAIL//\//\\/}/g" "$_file"
+  sed -i "s/@@@DEBARCH@@@/${_DEBARCH//\//\\/}/g" "$_file"
 }
 
 {

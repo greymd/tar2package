@@ -12,7 +12,7 @@ Vcs-Browser: @@@URL@@@
 Package: @@@CMDNAME@@@
 Version: @@@VERSION@@@
 Section: interpreters
-Architecture: amd64
+Architecture: @@@DEBARCH@@@
 Maintainer: @@@AUTHOR@@@
 Description: <@@@SUMMARY@@@>
  <@@@DESCRIPTION@@@>

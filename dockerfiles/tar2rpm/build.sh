@@ -13,6 +13,10 @@ load_vars () {
   _AUTHOR="$(yq r "$_file" author)"
   _EMAIL="$(yq r "$_file" email)"
   _LIBDIR="$(yq r "$_file" libdir)"
+  _DEBARCH="$(yq r "$_file" debarch)"
+  if [[ "$_DEBARCH" == "null" ]]; then
+    _DEBARCH="x86_64"
+  fi
 }
 
 inject_vars () {

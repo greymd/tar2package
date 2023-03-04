@@ -4,7 +4,7 @@ Version:    @@@VERSION@@@
 Group:      Applications
 License:    MIT
 Release:    %(date '+%'s)
-BuildArch:  %(uname -m)
+BuildArch:  @@@RPMARCH@@@
 URL:        @@@URL@@@
 Source:     template.tar.gz
 Vendor:     @@@AUTHOR@@@ <@@@EMAIL@@@>

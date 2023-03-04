@@ -31,6 +31,8 @@ url : <url of the application>
 author : <author name>
 email : <email>
 libdir : null
+debarch : <archtecture name i.e amd64>
+rpmarch : <archtecture name given by uname -m, i.e x86_64>
 ```
 
 ATTENTION: `name` must follow this rule.
@@ -85,12 +87,37 @@ That's it.
 
 You can additionally specify following parameters.
 
+#### `libdir`
+
 ```
 libdir : ...
 ```
 
-#### `libdir`
-
 Path of library directory.
 Commonly the path is `/usr/lib` but `/usr/lib64/` is used instead in some Linux distros with x86_64 environment.
 With this option, library directory is unified to specified path.
+
+#### `debarch`
+
+```
+debarch : ...
+```
+
+Default value: `noarch`
+
+CPU archtecture name recognized by deb package.
+i.e: `arm64`,`armhf`,`i686`,`amd64`
+If you are not sure, put `all`.
+Please refer to the [manual of debian-policy](https://www.debian.org/doc/debian-policy/ch-controlfields.html#s-f-architecture) in detail.
+
+#### `rpmarch`
+
+```
+rpmarch : ...
+```
+
+Default value: `x86_64`
+
+CPU archtecture name recognized by rpm package.
+Which is a string as sam as a result given by `uname -m` command.
+If you are not sure, execute `uname -m` on the build environment and put the result to the yaml file.
